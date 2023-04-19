@@ -5,12 +5,7 @@ export const app = Express()
 
 // Middlewares
 app.use(Express.json())
-try {
-    app.use(mainRouter)
-
-} catch (error) {
-    console.log(error.message)
-}
+app.use(mainRouter)
 
 
 // Handling non matching request from the client
