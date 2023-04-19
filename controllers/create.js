@@ -23,12 +23,7 @@ export const createOne = async (req, res, next) => {
             message: "Internal Server Error, Please try again"
         })
 
-        const createLink = await Link.create({ identifier, absolute_path: req.protocol + '://' + req.get('host') + '/' + identifier, link })
-        const findLink = await Link.findOne({ identifier: createLink.identifier }).select({ _id: 0, __v: 0 })
-        res.status(500).json({
-            success: true,
-            link: findLink
-        })
+        next()
 
     } catch (err) {
         res.status(401).json({ status: "Error", message: err.message })
@@ -45,12 +40,7 @@ export const createOneByIdentifier = async (req, res, next) => {
             message: "URL already exists with this identifier, Link:" + req.protocol + '://' + req.get('host') + identifier,
         })
 
-        const createLink = await Link.create({ identifier, absolute_path: req.protocol + '://' + req.get('host') + '/' + identifier, link })
-        const findLink = await Link.findOne({ identifier: createLink.identifier }).select({ _id: 0, __v: 0 })
-        res.status(500).json({
-            success: true,
-            link: findLink
-        })
+        next()
     } catch (err) {
         res.status(401).json({ status: "Error", message: err.message })
     }
