@@ -8,6 +8,7 @@ app.use(Express.json())
 app.use(mainRouter)
 
 
+
 // Handling non matching request from the client
 app.use((req, res, next) => {
     res.status(404).json({
