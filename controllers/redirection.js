@@ -12,8 +12,8 @@ export const redirectUrl = async (req, res, next) => {
         //     absolute_path,
         //     link
         // })
-
-        res.redirect(getJwt(url))
+console.log(getJwt(url))
+        // res.redirect(getJwt(url))
 
     } catch (err) {
         res.status(401).json({ status: "Error", message: err.message })
