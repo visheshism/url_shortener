@@ -1,6 +1,6 @@
 import { Link } from "../models/shorten.js"
 
-export const createLink = (req, res, next) => {
+export const createLink = async (req, res, next) => {
     const { identifier } = req.params
     const { link } = req.body
     const createLink = await Link.create({ identifier, absolute_path: req.protocol + '://' + req.get('host') + '/' + identifier, link })
