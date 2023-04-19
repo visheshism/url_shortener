@@ -11,7 +11,7 @@ export const redirectUrl = async (req, res, next) => {
         //     link
         // })
 
-        console.log(`Accessed ${getJwt(url)} at /${identifier}`)
+        console.log(`Accessed ${getJwt(url).url} at /${identifier}`)
         res.redirect(getJwt(url).url)
 
     } catch (err) {
