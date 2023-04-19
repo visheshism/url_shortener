@@ -10,7 +10,7 @@ export const deleteOne = async (req, res, next) => {
             message: "Couldn't find any link with this identifier"
         })
 
-        const link = await Link.deleteOne({ identifier }).select({ _id: 0 })
+        const link = await Link.deleteOne({ identifier }).select({ _id: 0, __v: 0 })
         if (!link.deletedCount > 0) return res.status(404).json({
             success: false,
             message: "Couldn't find any link with this identifier"

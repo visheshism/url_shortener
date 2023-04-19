@@ -24,7 +24,7 @@ export const createOne = async (req, res, next) => {
         })
 
         const createLink = await Link.create({ identifier, absolute_path: req.protocol + '://' + req.get('host') + '/' + identifier, link })
-        const findLink = await Link.findOne({ identifier: createLink.identifier }).select({ _id: 0 })
+        const findLink = await Link.findOne({ identifier: createLink.identifier }).select({ _id: 0, __v: 0 })
         res.status(500).json({
             success: true,
             link: findLink
@@ -46,7 +46,7 @@ export const createOneByIdentifier = async (req, res, next) => {
         })
 
         const createLink = await Link.create({ identifier, absolute_path: req.protocol + '://' + req.get('host') + '/' + identifier, link })
-        const findLink = await Link.findOne({ identifier: createLink.identifier }).select({ _id: 0 })
+        const findLink = await Link.findOne({ identifier: createLink.identifier }).select({ _id: 0, __v: 0 })
         res.status(500).json({
             success: true,
             link: findLink
