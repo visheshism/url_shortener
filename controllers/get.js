@@ -1,5 +1,5 @@
 import { Link } from "../models/shorten.js";
-
+import { getJwt } from "../data/jwt.js"
 
 export const getOne = async (req, res, next) => {
     try {
@@ -13,7 +13,11 @@ export const getOne = async (req, res, next) => {
 
         res.status(500).json({
             success: true,
-            link
+            link: {
+                absolute_path: link.absolute_path,
+                identifier: link.identifier,
+                url: getJwt(link.url).url
+            }
         })
 
     } catch (err) {
@@ -32,7 +36,13 @@ export const getAll = async (req, res, next) => {
 
         res.status(500).json({
             success: true,
-            links: allLinks
+            links: allLinks.map(x => {
+                return {
+                    absolute_path: x.absolute_path,
+                    identifier: x.identifier,
+                    url: getJwt(x.url).url
+                }
+            })
         })
 
     } catch (err) {

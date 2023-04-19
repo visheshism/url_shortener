@@ -3,7 +3,6 @@ import { Link } from "../models/shorten.js"
 export const createOne = async (req, res, next) => {
 
     try {
-        const { link } = req.body
         const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         const nums = "1234567890"
         const length = 16
@@ -23,6 +22,7 @@ export const createOne = async (req, res, next) => {
             message: "Internal Server Error, Please try again"
         })
 
+        req.identifier = identifier
         next()
 
     } catch (err) {
@@ -33,14 +33,15 @@ export const createOne = async (req, res, next) => {
 export const createOneByIdentifier = async (req, res, next) => {
     try {
         const { identifier } = req.params
-        const { link } = req.body
         const linkExist = await Link.findOne({ identifier })
         if (linkExist) return res.status(401).json({
             success: false,
-            message: "URL already exists with this identifier, Link:" + req.protocol + '://' + req.get('host') + identifier,
+            message: "URL already exists with this identifier, Link: " + req.protocol + '://' + req.get('host') + identifier,
         })
 
+        req.identifier = identifier
         next()
+        
     } catch (err) {
         res.status(401).json({ status: "Error", message: err.message })
     }
