@@ -5,7 +5,7 @@ export const createOne = async (req, res, next) => {
     try {
         const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         const nums = "1234567890"
-        const length = 16
+        const length = 6
         let i = 0
         const choices = [chars, nums]
         let identifier = '';
