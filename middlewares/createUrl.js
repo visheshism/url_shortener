@@ -15,7 +15,7 @@ export const createLink = async (req, res, next) => {
             link: {
                 absolute_path: findLink.absolute_path,
                 identifier: findLink.identifier,
-                url: getJwt(findLink.url).url
+                url: getJwt(findLink.url)
             }
         })
     } catch (err) {
