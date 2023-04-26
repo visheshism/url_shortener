@@ -11,7 +11,7 @@ export const getOne = async (req, res, next) => {
             message: "Couldn't find any link with this identifier"
         })
 
-        res.status(500).json({
+        res.status(200).json({
             success: true,
             link: {
                 absolute_path: link.absolute_path,
@@ -34,7 +34,7 @@ export const getAll = async (req, res, next) => {
             message: "No Links found !"
         })
 
-        res.status(500).json({
+        res.status(200).json({
             success: true,
             links: allLinks.map(x => {
                 return {

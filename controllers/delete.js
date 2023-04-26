@@ -16,7 +16,7 @@ export const deleteOne = async (req, res, next) => {
             message: "Couldn't find any link with this identifier"
         })
 
-        res.status(500).json({
+        res.status(200).json({
             success: true,
             message: "Deleted !"
         })

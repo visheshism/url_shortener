@@ -5,7 +5,7 @@ export const redirectUrl = async (req, res, next) => {
     try {
         const { identifier, absolute_path, url } = req.link
 
-        // res.status(500).json({
+        // res.status(200).json({
         //     identifier,
         //     absolute_path,
         //     link

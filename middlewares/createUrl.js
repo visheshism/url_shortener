@@ -10,7 +10,7 @@ export const createLink = async (req, res, next) => {
         
         const findLink = await Link.findOne({ identifier: createLink.identifier }).select({ _id: 0, __v: 0 })
 
-        res.status(500).json({
+        res.status(200).json({
             success: true,
             link: {
                 absolute_path: findLink.absolute_path,
