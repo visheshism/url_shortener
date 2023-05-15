@@ -7,8 +7,6 @@ export const app = Express()
 app.use(Express.json())
 app.use(mainRouter)
 
-
-
 // Handling non matching request from the client
 app.use((req, res, next) => {
     res.status(404).json({
@@ -17,10 +15,6 @@ app.use((req, res, next) => {
     })
 })
 
-
 app.all('*', (req, res) => {
     res.status(404).send('<h1>404! Page not found</h1>');
 });
-
-
-

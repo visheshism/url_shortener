@@ -41,7 +41,7 @@ export const createOneByIdentifier = async (req, res, next) => {
 
         req.identifier = identifier
         next()
-        
+
     } catch (err) {
         res.status(401).json({ status: "Error", message: err.message })
     }

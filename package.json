@@ -1,7 +1,7 @@
 {
   "name": "ur_shortener",
   "version": "1.0.0",
-  "description": "",
+  "description": "Api which provides functionality to shortens URLs",
   "type": "module",
   "engines": {
     "node": ">=14.20.1"
@@ -12,7 +12,7 @@
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Vishesh Singh",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.3",
