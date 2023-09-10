@@ -3,6 +3,11 @@
 ## Introduction
 This API provides functionality to shorten URLs and access them through client-side redirection.
 
+## Tech Used
+- Express.js
+- Mongoose
+- JSON Web Token (JWT)
+ 
 ## Installation
 To install the necessary dependencies, run the following command:
 `npm install`
